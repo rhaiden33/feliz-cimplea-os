@@ -6,20 +6,128 @@
     <title>Feliz cumpleaños 💗</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{min-height:100vh;font-family:Georgia,serif;background:linear-gradient(135deg,#ffe0ec,#ffc1d6,#fff0f5);color:#8b1745;display:flex;justify-content:center;align-items:center;padding:20px;overflow-x:hidden}
-        .corazon{position:fixed;color:rgba(255,80,140,.25);font-size:25px;animation:flotar 8s linear infinite;pointer-events:none;z-index:0}
-        @keyframes flotar{0%{transform:translateY(100vh) rotate(0);opacity:0}20%{opacity:1}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
-        .contenedor{width:100%;max-width:650px;background:rgba(255,255,255,.88);padding:35px 25px;border-radius:25px;box-shadow:0 10px 35px rgba(180,40,90,.2);text-align:center;position:relative;z-index:1;animation:aparecer .7s ease}
+        body{
+            min-height:100vh;
+            font-family:Georgia,serif;
+            background:
+                radial-gradient(circle at 15% 20%,rgba(255,255,255,.75) 0 2px,transparent 3px),
+                radial-gradient(circle at 80% 15%,rgba(255,255,255,.7) 0 2px,transparent 3px),
+                radial-gradient(circle at 65% 75%,rgba(255,255,255,.55) 0 2px,transparent 3px),
+                linear-gradient(180deg,#f6b6dc 0%,#e6a9d9 42%,#c58ed0 100%);
+            background-size:70px 70px,90px 90px,110px 110px,100% 100%;
+            color:#6f356b;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+            overflow-x:hidden;
+            image-rendering:auto
+        }
+        body:before,body:after{
+            content:"";
+            position:fixed;
+            width:180px;height:70px;
+            background:#ffd8ef;
+            opacity:.65;
+            z-index:0;
+            filter:drop-shadow(18px 12px 0 #f4c3e4) drop-shadow(35px 22px 0 #eab1da);
+        }
+        body:before{top:10%;left:-40px}
+        body:after{bottom:8%;right:-50px}
+        .corazon{
+            position:fixed;
+            color:rgba(255,245,255,.65);
+            font-size:25px;
+            animation:flotar 8s linear infinite;
+            pointer-events:none;
+            z-index:0;
+            text-shadow:2px 2px 0 rgba(174,92,164,.25)
+        }
+        @keyframes flotar{0%{transform:translateY(100vh);opacity:0}20%{opacity:1}100%{transform:translateY(-10vh);opacity:0}}
+        .contenedor{
+            width:100%;
+            max-width:650px;
+            background:rgba(255,225,243,.92);
+            padding:35px 25px;
+            border:4px solid #9d5fa0;
+            border-radius:8px;
+            box-shadow:8px 8px 0 rgba(111,53,107,.25);
+            text-align:center;
+            position:relative;
+            z-index:1;
+            animation:aparecer .7s ease
+        }
         @keyframes aparecer{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        h1{font-size:2rem;margin-bottom:15px;color:#c2185b}p{line-height:1.8;font-size:1.05rem}.subtitulo{margin-bottom:25px;color:#a34468}
-        .menu{display:flex;flex-direction:column;gap:18px;margin-top:30px}.opcion{background:linear-gradient(135deg,#ff8eb7,#f45b91);border:none;border-radius:18px;padding:22px 15px;color:white;font-size:1.15rem;font-family:inherit;cursor:pointer;transition:.3s;box-shadow:0 5px 15px rgba(220,50,110,.2)}
-        .opcion:hover{transform:scale(1.04);background:linear-gradient(135deg,#f45b91,#e83e7d)}
-        .icono{display:block;font-size:2rem;margin-bottom:8px}.seccion{display:none;animation:aparecer .6s ease}.seccion.activa{display:block}
-        .carta{background:#fff7fa;border:2px dashed #f3a0bd;border-radius:15px;padding:25px 20px;text-align:left;margin:20px 0}.carta p{margin-bottom:15px}.firma{text-align:right;font-style:italic;color:#c2185b;margin-top:20px}
-        .ramo{margin:20px auto}.imagen-ramo{display:block;width:100%;max-width:350px;height:auto;margin:0 auto;image-rendering:pixelated;filter:drop-shadow(0 8px 10px rgba(150,30,70,.2));animation:flotarRamo 3s ease-in-out infinite}
-        @keyframes flotarRamo{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}.volver{margin-top:25px;background:#fff;color:#c2185b;border:2px solid #f3a0bd;border-radius:25px;padding:12px 25px;font-size:1rem;font-family:inherit;cursor:pointer;transition:.3s}.volver:hover{background:#ffe0ec;transform:scale(1.05)}
-        .decoracion{font-size:1.5rem;margin-top:20px}
-        @media(max-width:480px){.contenedor{padding:25px 18px}h1{font-size:1.6rem}p{font-size:1rem}.opcion{font-size:1rem}}
+        h1{
+            font-size:2rem;
+            margin-bottom:15px;
+            color:#8d477f;
+            text-shadow:3px 3px 0 #f8cbe5
+        }
+        p{line-height:1.8;font-size:1.05rem}
+        .subtitulo{margin-bottom:25px;color:#87527f}
+        .menu{display:flex;flex-direction:column;gap:18px;margin-top:30px}
+        .opcion{
+            background:#e88fc5;
+            border:3px solid #9d5fa0;
+            border-radius:6px;
+            padding:20px 15px;
+            color:#fff8ff;
+            font-size:1.15rem;
+            font-family:inherit;
+            cursor:pointer;
+            transition:.2s;
+            box-shadow:5px 5px 0 #b76baa
+        }
+        .opcion:hover{
+            transform:translate(-2px,-2px);
+            box-shadow:7px 7px 0 #9d5fa0;
+            background:#ee9bce
+        }
+        .icono{display:block;font-size:2rem;margin-bottom:8px}
+        .seccion{display:none;animation:aparecer .6s ease}
+        .seccion.activa{display:block}
+        .carta{
+            background:#fff0f9;
+            border:3px dashed #c77db4;
+            border-radius:6px;
+            padding:25px 20px;
+            text-align:left;
+            margin:20px 0;
+            box-shadow:4px 4px 0 rgba(157,95,160,.18)
+        }
+        .carta p{margin-bottom:15px}
+        .ramo{margin:20px auto}
+        .imagen-ramo{
+            display:block;
+            width:100%;
+            max-width:350px;
+            height:auto;
+            margin:0 auto;
+            image-rendering:pixelated;
+            filter:drop-shadow(6px 6px 0 rgba(111,53,107,.18))
+        }
+        .volver{
+            margin-top:25px;
+            background:#fff0f9;
+            color:#8d477f;
+            border:3px solid #b76baa;
+            border-radius:6px;
+            padding:12px 25px;
+            font-size:1rem;
+            font-family:inherit;
+            cursor:pointer;
+            box-shadow:4px 4px 0 #d08bc0;
+            transition:.2s
+        }
+        .volver:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #b76baa}
+        .decoracion{font-size:2.5rem;margin:10px 0;color:#c85c9f;text-shadow:3px 3px 0 #f6c4e2}
+        @media(max-width:480px){
+            .contenedor{padding:25px 18px}
+            h1{font-size:1.6rem}
+            p{font-size:1rem}
+            .opcion{font-size:1rem}
+        }
     </style>
 </head>
 <body>
@@ -28,16 +136,22 @@
     <div class="corazon" style="left:45%;animation-delay:1s">♥</div>
     <div class="corazon" style="left:65%;animation-delay:4s">♥</div>
     <div class="corazon" style="left:85%;animation-delay:2s">♥</div>
+
     <main class="contenedor">
         <section id="inicio" class="seccion activa">
             <h1>FELIZ CUMPLEAÑOS 🥳</h1>
             <div class="decoracion">♡</div>
             <p class="subtitulo">Elige una de estas pequeñas sorpresas...</p>
             <div class="menu">
-                <button class="opcion" onclick="mostrarSeccion('carta')"><span class="icono">💌</span>Ver mi carta para ti</button>
-                <button class="opcion" onclick="mostrarSeccion('flores')"><span class="icono">🌹</span>Ver tu ramo de flores</button>
+                <button class="opcion" onclick="mostrarSeccion('carta')">
+                    <span class="icono">💌</span>Ver mi carta para ti
+                </button>
+                <button class="opcion" onclick="mostrarSeccion('flores')">
+                    <span class="icono">🌹</span>Ver tu ramo de flores
+                </button>
             </div>
         </section>
+
         <section id="carta" class="seccion">
             <h1>FELIZ CUMPLEAÑOS!!! 🥳</h1>
             <div class="carta">
@@ -47,6 +161,7 @@
             </div>
             <button class="volver" onclick="mostrarSeccion('inicio')">← Volver al menú</button>
         </section>
+
         <section id="flores" class="seccion">
             <h1>🌷 Un ramo para ti 🌷</h1>
             <div class="ramo">
@@ -55,6 +170,7 @@
             <button class="volver" onclick="mostrarSeccion('inicio')">← Volver al menú</button>
         </section>
     </main>
+
     <script>
         function mostrarSeccion(id){
             document.querySelectorAll('.seccion').forEach(seccion=>seccion.classList.remove('activa'));
