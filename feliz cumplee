@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un regalo para ti 💗</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffe0ec, #ffc1d6, #fff0f5);
+            color: #8b1745;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Corazones decorativos */
+
+        .corazon {
+            position: fixed;
+            color: rgba(255, 80, 140, 0.25);
+            font-size: 25px;
+            animation: flotar 8s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Contenedor principal */
+
+        .contenedor {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.88);
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(180, 40, 90, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: aparecer 0.7s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #c2185b;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #c2185b;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .subtitulo {
+            margin-bottom: 25px;
+            color: #a34468;
+        }
+
+        /* Menú seleccionable */
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .opcion {
+            background: linear-gradient(135deg, #ff8eb7, #f45b91);
+            border: none;
+            border-radius: 18px;
+            padding: 22px 15px;
+            color: white;
+            font-size: 1.15rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(220, 50, 110, 0.2);
+        }
+
+        .opcion:hover {
+            transform: scale(1.04);
+            background: linear-gradient(135deg, #f45b91, #e83e7d);
+            box-shadow: 0 8px 20px rgba(220, 50, 110, 0.3);
+        }
+
+        .icono {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        /* Secciones */
+
+        .seccion {
+            display: none;
+            animation: aparecer 0.6s ease;
+        }
+
+        .seccion.activa {
+            display: block;
+        }
+
+        /* Carta */
+
+        .carta {
+            background: #fff7fa;
+            border: 2px dashed #f3a0bd;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .carta p {
+            margin-bottom: 15px;
+        }
+
+        .firma {
+            text-align: right;
+            font-style: italic;
+            color: #c2185b;
+            margin-top: 20px;
+        }
+
+        /* Ramo de flores */
+
+        .ramo {
+            margin: 20px auto;
+        }
+
+        .imagen-ramo {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            margin: 0 auto;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 8px 10px rgba(150, 30, 70, 0.2));
+            animation: flotarRamo 3s ease-in-out infinite;
+        }
+
+        @keyframes flotarRamo {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .mensaje-ramo {
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Botón volver */
+
+        .volver {
+            margin-top: 25px;
+            background: #fff;
+            color: #c2185b;
+            border: 2px solid #f3a0bd;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .volver:hover {
+            background: #ffe0ec;
+            transform: scale(1.05);
+        }
+
+        .decoracion {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* Adaptación para celulares */
+
+        @media (max-width: 480px) {
+            .contenedor {
+                padding: 25px 18px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .opcion {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Corazones de fondo -->
+
+    <div class="corazon" style="left: 10%; animation-delay: 0s;">♥</div>
+    <div class="corazon" style="left: 25%; animation-delay: 3s;">♥</div>
+    <div class="corazon" style="left: 45%; animation-delay: 1s;">♥</div>
+    <div class="corazon" style="left: 65%; animation-delay: 4s;">♥</div>
+    <div class="corazon" style="left: 85%; animation-delay: 2s;">♥</div>
+
+    <!-- Contenedor -->
+
+    <main class="contenedor">
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <section id="inicio" class="seccion activa">
+
+            <h1>¡Feliz cumpleaños, mi amor! 💗</h1>
+
+            <p class="subtitulo">
+                Preparé algo especial para ti.<br>
+                Elige una de estas pequeñas sorpresas...
+            </p>
+
+            <div class="menu">
+
+                <button class="opcion" onclick="mostrarSeccion('carta')">
+                    <span class="icono">💌</span>
+                    Ver mi carta para ti
+                </button>
+
+                <button class="opcion" onclick="mostrarSeccion('flores')">
+                    <span class="icono">🌹</span>
+                    Ver tu ramo de flores
+                </button>
+
+            </div>
+
+            <div class="decoracion">♡ ♡ ♡</div>
+
+        </section>
+
+
+        <!-- SECCIÓN DE LA CARTA -->
+
+        <section id="carta" class="seccion">
+
+            <h1>💌 Para ti, mi amor</h1>
+
+            <div class="carta">
+
+                <p>Mi amor,</p>
+
+                <p>
+                    Hoy es un día muy especial porque celebramos tu vida,
+                    y quiero recordarte lo importante que eres para mí.
+                </p>
+
+                <p>
+                    Gracias por llegar a mi vida, por cada sonrisa,
+                    cada momento bonito y por hacer que mis días
+                    sean mucho más especiales.
+                </p>
+
+                <p>
+                    Deseo de todo corazón que este nuevo año de tu vida
+                    esté lleno de felicidad, sueños cumplidos,
+                    tranquilidad y muchísimas razones para sonreír.
+                </p>
+
+                <p>
+                    Espero poder seguir compartiendo momentos contigo,
+                    acompañarte en tus metas y recordarte siempre
+                    lo mucho que vales.
+                </p>
+
+                <p>
+                    Feliz cumpleaños, preciosa.
+                    Hoy y siempre mereces cosas bonitas.
+                </p>
+
+                <p class="firma">
+                    Con muchísimo cariño,<br>
+                    tu persona especial 💗
+                </p>
+
+            </div>
+
+            <button class="volver" onclick="mostrarSeccion('inicio')">
+                ← Volver al menú
+            </button>
+
+        </section>
+
+
+        <!-- SECCIÓN DEL RAMO -->
+
+        <section id="flores" class="seccion">
+
+            <h1>🌷 Un ramo para ti 🌷</h1>
+
+            <p>
+                Aunque estas flores no puedan llegar a tus manos,
+                las preparé con mucho cariño para ti.
+            </p>
+
+            <div class="ramo">
+
+                <!-- Reemplaza la URL por la de tu imagen del ramo -->
+
+               <img
+    class="imagen-ramo"
+    src="https://img.freepik.com/vector-premium/ramo-flores-arte-pixeles-ilustracion-vectorial-rosas_170464-15.jpg?w=2000"
+    alt="Ramo de rosas pixel art"
+>
+
+            </div>
+
+            <p class="mensaje-ramo">
+                Unas flores para alguien que hace más bonito mi mundo. 💗
+            </p>
+
+            <button class="volver" onclick="mostrarSeccion('inicio')">
+                ← Volver al menú
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function mostrarSeccion(id) {
+
+            // Ocultar todas las secciones
+            const secciones = document.querySelectorAll('.seccion');
+
+            secciones.forEach(seccion => {
+                seccion.classList.remove('activa');
+            });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(id).classList.add('activa');
+
+        }
+
+    </script>
+
+</body>
+</html>
